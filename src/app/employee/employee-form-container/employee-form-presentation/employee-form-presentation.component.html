@@ -1,0 +1,77 @@
+<br>
+<h2 align="center">Employee Form</h2>
+<p></p>
+<div class="form-horizontal">
+    <div class="form-group col-md-12 col-xs-12">
+        <div class="container">
+
+            <form class="row" [formGroup]="employeeForm">
+
+                <div class="col-md-4 col-xs-5">
+                    <label for="firstname" class="form-label">FirstName: </label>
+                    <input type="text" class="form-control" formControlName="fname">
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.fname.touched || submitted) && employeeDetailFormControl.fname.errors?.required">
+                        Please enter FirstName
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.fname.touched) && employeeDetailFormControl.fname.errors?.pattern">
+                        Only characters are allow.
+                    </span>
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <label for="firstname" class="form-label">LastName: </label>
+                    <input type="text" class="form-control" formControlName="lname">
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.lname.touched || submitted) && employeeDetailFormControl.lname.errors?.required">
+                        Please enter LastName
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.lname.touched) && employeeDetailFormControl.lname.errors?.pattern">
+                        Only characters are allow.
+                    </span>
+                </div>
+
+                <p></p>
+                <div class="col-md-4 col-xs-12">
+                    <label for="birthdate" class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" formControlName="birthdate">
+                    <!-- ngbDatepicker #d="ngbDatepicker" -->
+                </div>
+
+                <div class="col-auto">
+                    <p></p>
+                    <p></p>
+                    <label for="validationCustom01" class="form-label">Gender</label><br>
+                    <input type="radio" name="gender" value="male" formControlName="gender">Male
+                    <span></span>
+                    <input type="radio" name="gender" value="female" formControlName="gender">Female
+                </div>
+                <p></p>
+                <div class="col-md-4 col-xs-12">
+                    <label for="department" class="form-label">Department: </label>
+                    <input type="text" class="form-control" formControlName="department">
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.department.touched || submitted) && employeeDetailFormControl.department.errors?.required">
+                        Please enter department
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="(employeeDetailFormControl.department.touched) && employeeDetailFormControl.department.errors?.pattern">
+                        Only characters are allow.
+                    </span>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <p></p>
+                    <p></p>
+                    <label for="enabled" class="form-label">Enabled &nbsp;</label>
+                    <input type="checkbox" formControlName="enabled">
+                </div>
+                <p></p>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3" (click)="onSubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

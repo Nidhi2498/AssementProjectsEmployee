@@ -1,0 +1,69 @@
+<br />
+<div>
+    <button class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="add" routerLink="add">
+        Add Details
+    </button>
+
+    <p></p>
+    <br />
+    <div class="col-md-4" align="right">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" />
+    </div>
+    <p></p>
+    <div *ngIf="employeeData && employeeData.length > 0; else elseBlock">
+        <div *ngIf="msg" [ngClass]="clss">{{msg}}</div>
+
+        <button type="button" class="btn btn-danger" (click)="deleteProducts()">Delete Selected Product(s)</button>
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)" />
+                    </th>
+                    <th class="pointer">
+                        FirstName
+                    </th>
+                    <th class="pointer">
+                        LastName
+                    </th>
+                    <th>Birthdate</th>
+                    <th>Gender</th>
+                    <th class="pointer">
+                        Department
+                    </th>
+                    <th>Enabled</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody
+                *ngFor="let empdetail of employeeData | search : searchText | orderBy:'fname' | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ;let i=index ">
+                <tr>
+                    <td><input type="checkbox" value="{{empdetail.id}}" [(ngModel)]="employeeData[i].checked" /></td>
+                    <td>{{ empdetail.fname}}</td>
+                    <td>{{ empdetail.lname }}</td>
+                    <td>{{ empdetail.birthdate }}</td>
+                    <td>{{ empdetail.gender | genderpipe}}</td>
+                    <td>{{ empdetail.department }}</td>
+                    <td><input type="checkbox" [(ngModel)]="employeeData[i].enabled" /></td>
+                    <td>
+                        <button class="btn btn-warning m-1" data-toggle="tooltip" data-placement="right" title="Edit"
+                            (click)="getUserById(empdetail.id)">
+                            Edit
+                        </button>
+
+                        <button class="btn btn-danger m-1" data-toggle="tooltip" data-placement="right" title="Delete"
+                            (click)="deleteUserDetail(empdetail.id)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #elseBlock>
+        <div style="color: red;">No record found</div>
+    </ng-template>
+    <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize"
+        [collectionSize]="employeeData.length"></ngb-pagination>
+
+    <br />
+</div>

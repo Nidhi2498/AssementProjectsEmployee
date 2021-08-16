@@ -1,0 +1,67 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "fname": "John",
+      "lname": "Doe",
+      "birthdate": "2003-01-21",
+      "gender": "male",
+      "department": "Manager",
+      "enabled": "true"
+    },
+    {
+      "id": 2,
+      "fname": "Patrina",
+      "lname": "Pascal",
+      "birthdate": "1997-05-14",
+      "gender": "female",
+      "department": "Food",
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "fname": "Caroline",
+      "lname": "Herschel",
+      "birthdate": "2016-04-11",
+      "gender": "female",
+      "department": "Agronomy",
+      "enabled": false
+    },
+    {
+      "id": 7,
+      "fname": "Arina",
+      "lname": "Grande",
+      "birthdate": "1995-06-07",
+      "gender": "female",
+      "department": "Environment",
+      "enabled": false
+    },
+    {
+      "id": 8,
+      "fname": "Edmond",
+      "lname": "Halley",
+      "birthdate": "1992-05-19",
+      "gender": "male",
+      "department": "Animals",
+      "enabled": true
+    },
+    {
+      "id": 9,
+      "fname": "Elizabeth",
+      "lname": "Blackburn",
+      "birthdate": "1990-12-13",
+      "gender": "female",
+      "department": "Environment",
+      "enabled": false
+    },
+    {
+      "id": 10,
+      "fname": "Jane",
+      "lname": "Goodall",
+      "birthdate": "1989-09-11",
+      "gender": "female",
+      "department": "Agronomy",
+      "enabled": false
+    }
+  ]
+}
